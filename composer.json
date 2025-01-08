@@ -1,0 +1,23 @@
+{
+    "name": "kirshet/yii2-dialog-widget",
+    "description": "A Dialog Widget user interactions in Yii2 applications.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "kirshet\\yii2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kirill Shetko",
+            "email": "kirshet2000@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "installer-paths": {
+            "common/widgets/DialogWidget": ["kirshet/yii2"]
+        }
+    }
+}
