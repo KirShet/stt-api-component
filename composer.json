@@ -1,11 +1,11 @@
 {
-    "name": "kirshet/yii2-dialog-widget",
-    "description": "A Dialog Widget user interactions in Yii2 applications.",
+    "name": "kirshet/stt-api-component",
+    "description": "interacting with the Speech-to-Text API, converting audio to text.",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "kirshet\\yii2\\": "src/"
+            "kirshet\\stt\\": "src/"
         }
     },
     "authors": [
@@ -17,7 +17,10 @@
     "minimum-stability": "stable",
     "extra": {
         "installer-paths": {
-            "common/widgets/DialogWidget": ["kirshet/yii2"]
+            "frontend/components": ["kirshet/stt-api-component"]
         }
+    },
+    "require": {
+        "yiisoft/yii2-httpclient": "^2.0"
     }
 }
