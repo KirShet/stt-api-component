@@ -15,6 +15,13 @@
         }
     ],
     "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
     "extra": {
         "installer-paths": {
             "frontend/components": ["kirshet/stt-api-component"]
