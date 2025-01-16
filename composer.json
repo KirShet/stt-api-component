@@ -1,5 +1,5 @@
 {
-    "name": "kirshet/stt-api-component",
+    "name": "kirshet/stt_api_component",
     "description": "interacting with the Speech-to-Text API, converting audio to text.",
     "type": "library",
     "license": "MIT",
@@ -24,7 +24,7 @@
     ],
     "extra": {
         "installer-paths": {
-            "frontend/components": ["kirshet/stt-api-component"]
+            "frontend/components": ["kirshet/stt_api_component"]
         }
     },
     "require": {
