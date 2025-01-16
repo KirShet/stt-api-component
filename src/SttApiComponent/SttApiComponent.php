@@ -1,47 +1,43 @@
-<?php 
- 
-namespace frontend\components; 
- 
-use yii\base\Component; 
-use yii\httpclient\Client; 
-use yii\base\InvalidConfigException; 
- 
-class SttApiComponent extends Component 
-{ 
-    public $apiUrl;
-    public $token;
- 
-    /** 
-     * @param string $callid
-     * @param string $callurl
-     * @return array
-     * @throws \yii\base\ErrorException 
-     */ 
-    public function stt($callid, $callurl) 
-    { 
-        if (empty($this->apiUrl) || empty($this->token)) { 
-            throw new InvalidConfigException('API URL и Token должны быть заданы.'); 
-        } 
- 
-        $client = new Client(); 
- 
-        $response = $client->createRequest() 
-            ->setMethod('POST') 
-            ->setUrl($this->apiUrl . '/stt') 
-            ->setHeaders([ 
-                'Authorization' => 'Bearer ' . $this->token, 
-                'Content-Type' => 'application/json', 
-            ]) 
-            ->setData([ 
-                'callid' => $callid, 
-                'callurl' => $callurl, 
-            ]) 
-            ->send(); 
- 
-        if (!$response->isOk) { 
-            throw new \yii\base\ErrorException('Ошибка при обращении к API: ' . $response->statusCode); 
-        } 
+<?php
 
-        return json_decode($response->content, true); 
-    } 
-} 
+namespace kirshet\stt-api-component\SttApiComponent; 
+
+use yii\base\Component;
+use yii\httpclient\Client;
+ 
+class SttApiComponent extends Component
+{
+    public $apiUrl = 'http://192.168.0.113:8000/stt';
+    public $apiToken = 'Bearer Ux1lVPyOFFFwv16fS4munCyz8I1vZQWhgni6zXf1hqyZ0heODvHYsjXUNi5yWo9W';
+
+    /**
+    * @param string $callId Идентификатор вызова
+    * @param string $callUrl Ссылка на запись вызова.
+    * @return array|null Возвращает результат ответа или null в случае ошибки.
+    */
+    public function sendRequest(string $callId, string $callUrl)
+    {
+        $client = new Client();
+ 
+        $response = $client->createRequest()
+            ->setMethod('POST')
+            ->setUrl($this->apiUrl)
+            ->setHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => $this->apiToken,
+            ])
+            ->setContent(json_encode([
+                'callid' => $callId,
+                'callurl' => $callUrl,
+            ]))
+            ->send();
+ 
+        if ($response->isOk) {
+            return json_decode($response->getContent(), true);
+        }
+ 
+        \Yii::error('STT API Error: ' . $response->statusCode, __METHOD__);
+        return null;
+    }
+}
+ 
