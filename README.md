@@ -9,8 +9,8 @@ composer require kirshet/stt-api-component
 'components' => [
     'sttApi' => [ 
         'class' => 'frontend\components\SttApiComponent', 
-        'apiUrl' => 'http://192.168.0.113:8000',
-        'token' => 'Ux1lVPyOFFFwv16fS4munCyz8I1vZQWhgni6zXf1hqyZ0heODvHYsjXUNi5yWo9W',
+        'apiUrl' => '',
+        'token' => '',
     ], 
 ],
 Использование в контроллере
@@ -20,8 +20,8 @@ class CallController extends Controller
 {
     public function actionIndex()
     {
-        $callid = '11196663';
-        $callurl = 'https://ooo-tehnologija-i-servis.megapbx.ru/api/v2/call-records/record/2024-12-02/62c8e98e-8186-48db-b0f9-994701586c8d/79202603864_in_2024_12_02-15_38_11_79191366941_fmsf.mp3';
+        $callid = '';
+        $callurl = '';
 
         $response = \Yii::$app->sttApi->stt([
             'callid' => $callid,
@@ -38,16 +38,16 @@ class CallController extends Controller
 use common\widgets\DialogWidget; 
  
 echo DialogWidget::widget([ 
-    'callid' => '11196663', 
-    'callurl' => 'https://ooo-tehnologija-i-servis.megapbx.ru/api/v2/call-records/record/2024-12-02/62c8e98e-8186-48db-b0f9-994701586c8d/79202603864_in_2024_12_02-15_38_11_79191366941_fmsf.mp3', 
+    'callid' => '', 
+    'callurl' => '', 
 ]); 
 ?>
 Пример POST-запроса
 Пример тела запроса, который отправляется на API:
 
 {
-    "callid": "11196663",
-    "callurl": "https://ooo-tehnologija-i-servis.megapbx.ru/api/v2/call-records/record/2024-12-02/62c8e98e-8186-48db-b0f9-994701586c8d/79202603864_in_2024_12_02-15_38_11_79191366941_fmsf.mp3"
+    "callid": "",
+    "callurl": ""
 }
 Пример ответа API:
 
