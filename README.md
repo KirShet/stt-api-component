@@ -1,7 +1,7 @@
 Установка через Composer
 Установите виджет с помощью команды:
 ```
-composer require kirshet/yii2_dialog_widget:dev-main
+composer require kirshet/stt_api_component:dev-main
 ```
 Использование в представлении
 ```
