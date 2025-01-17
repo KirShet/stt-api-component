@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "kirshet\\stt\\": "src/"
+            "kirshet\\stt_api_component\\": "src/"
         }
     },
     "authors": [

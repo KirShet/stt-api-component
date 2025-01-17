@@ -1,6 +1,6 @@
 <?php
 
-namespace kirshet\stt-api-component\SttApiComponent; 
+namespace kirshet\stt_api_component\SttApiComponent; 
 
 use yii\base\Component;
 use yii\httpclient\Client;
